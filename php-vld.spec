@@ -14,6 +14,7 @@ Requires(pre): rpm-helper
 Requires(postun): rpm-helper
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	file
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 The Vulcan Logic Disassembler hooks into the Zend Engine and dumps all the
