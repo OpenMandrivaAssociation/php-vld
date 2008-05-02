@@ -5,7 +5,7 @@
 Summary:	Provides functionality to dump the internal representation of PHP scripts
 Name:		php-%{modname}
 Version:	0.9.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/vld
@@ -14,7 +14,7 @@ Requires(pre): rpm-helper
 Requires(postun): rpm-helper
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	file
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The Vulcan Logic Disassembler hooks into the Zend Engine and dumps all the
