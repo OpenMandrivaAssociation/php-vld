@@ -1,11 +1,11 @@
 %define modname vld
 %define soname %{modname}.so
-%define inifile A72_%{modname}.ini
+%define inifile 98_%{modname}.ini
 
 Summary:	Provides functionality to dump the internal representation of PHP scripts
 Name:		php-%{modname}
 Version:	0.9.1
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/vld
@@ -84,4 +84,3 @@ rm -rf %{buildroot}
 %doc package*.xml
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
-
