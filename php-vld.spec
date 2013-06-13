@@ -4,12 +4,12 @@
 
 Summary:	Provides functionality to dump the internal representation of PHP scripts
 Name:		php-%{modname}
-Version:	0.11.1
-Release:	%mkrel 2
+Version:	0.11.2
+Release:	1
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/vld
-Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+Source0:	http://pecl.php.net/get/vld-%{version}.tgz
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
 BuildRequires:	php-devel >= 3:5.2.0
@@ -212,3 +212,4 @@ rm -rf %{buildroot}
 
 * Fri Nov 30 2007 Oden Eriksson <oeriksson@mandriva.com> 0.9.0-1mdv2008.1
 - initial Mandriva package
+
