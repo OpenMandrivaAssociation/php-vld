@@ -4,8 +4,8 @@
 
 Summary:	Provides functionality to dump the internal representation of PHP scripts
 Name:		php-%{modname}
-Version:	0.11.2
-Release:	5
+Version:	0.12.0
+Release:	1
 Group:		Development/PHP
 License:	PHP License
 Url:		http://pecl.php.net/package/vld
@@ -76,4 +76,5 @@ fi
 %doc package*.xml
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
+
 
