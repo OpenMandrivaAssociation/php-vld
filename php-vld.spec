@@ -5,20 +5,21 @@
 Summary:	Provides functionality to dump the internal representation of PHP scripts
 Name:		php-%{modname}
 Version:	0.12.0
-Release:	2
+Release:	3
 Group:		Development/PHP
 License:	PHP License
-Url:		http://pecl.php.net/package/vld
+URL:		http://pecl.php.net/package/vld
 Source0:	http://pecl.php.net/get/vld-%{version}.tgz
-BuildRequires:	file
 BuildRequires:	php-devel >= 3:5.2.0
-Requires(pre,postun):	rpm-helper
+BuildRequires:	file
+Requires(pre,postun): rpm-helper
 
 %description
 The Vulcan Logic Disassembler hooks into the Zend Engine and dumps all the
 opcodes (execution units) of a script.
 
 %prep
+
 %setup -q -n %{modname}-%{version}
 [ "../package*.xml" != "/" ] && mv ../package*.xml .
 
@@ -36,13 +37,13 @@ perl -pi -e "s|/lib\b|/%{_lib}|g" config.m4
 %serverbuild
 
 phpize
-%configure2_5x \
-	--with-libdir=%{_lib} \
-	--with-%{modname}=shared,%{_prefix}
+%configure2_5x --with-libdir=%{_lib} \
+    --with-%{modname}=shared,%{_prefix}
 
 %make
 
 %install
+
 install -d %{buildroot}%{_sysconfdir}/php.d
 install -d %{buildroot}%{_libdir}/php/extensions
 install -d %{buildroot}/var/log/httpd
@@ -61,20 +62,14 @@ vld.verbosity = 1
 EOF
 
 %post
-if [ -f /var/lock/subsys/httpd ]; then
-    %{_initrddir}/httpd restart >/dev/null || :
-fi
+/bin/systemctl daemon-reload >/dev/null 2>&1 || :
 
 %postun
 if [ "$1" = "0" ]; then
-    if [ -f /var/lock/subsys/httpd ]; then
-	%{_initrddir}/httpd restart >/dev/null || :
-    fi
+    /bin/systemctl daemon-reload >/dev/null 2>&1 || :
 fi
 
-%files 
+%files
 %doc package*.xml
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
-
-
