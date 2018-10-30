@@ -5,7 +5,7 @@
 Summary:	Provides functionality to dump the internal representation of PHP scripts
 Name:		php-%{modname}
 Version:	0.13.0
-Release:	2
+Release:	3
 Group:		Development/PHP
 License:	PHP License
 URL:		http://pecl.php.net/package/vld
