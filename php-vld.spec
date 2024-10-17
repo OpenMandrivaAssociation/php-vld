@@ -8,7 +8,7 @@ Version:	0.13.0
 Release:	3
 Group:		Development/PHP
 License:	PHP License
-URL:		http://pecl.php.net/package/vld
+URL:		https://pecl.php.net/package/vld
 Source0:	http://pecl.php.net/get/vld-%{version}.tgz
 BuildRequires:	php-devel >= 3:5.2.0
 BuildRequires:	file
